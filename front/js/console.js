@@ -7,7 +7,7 @@ document
 function consoleFetchTest() {
   // サーバーからデータを取得
   axios
-    .get("http://localhost:3000/quiz")
+    .get("http://localhost:3000/console")
     .then((response) => {
       console.log(response);
     })
