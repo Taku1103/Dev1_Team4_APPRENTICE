@@ -5,7 +5,7 @@ require 'dotenv'
 Dotenv.load
 
 # DBからEpisodesを取得してくるAPI
-class Episodes < WEBrick::HTTPServlet::AbstractServlet
+class GetDBData < WEBrick::HTTPServlet::AbstractServlet
   def do_GET(_req, res)
   # MySQL接続情報　ここにenvファイルから呼び出した環境変数を使用
     client = Mysql2::Client.new(

@@ -1,6 +1,6 @@
 require "webrick"
 
-class Quiz < WEBrick::HTTPServlet::AbstractServlet
+class Console < WEBrick::HTTPServlet::AbstractServlet
   def do_GET(_req, res)
     res.status = 200
     res['Content-Type'] = 'application/json'

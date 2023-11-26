@@ -22,8 +22,8 @@ server.config[:AccessLog] = [
 # 既存のエンドポイントにサーブレットをマウント
 # ここでバックエンドのどこにアクセスするとデータが持ってこれるか決めるよ
 #  server.mount("ここにURL","ここにコントローラーに書き出したクラスを指定")
-server.mount('/console', Quiz)
-server.mount('/get_db_data', Episodes)
+server.mount('/console', Console)
+server.mount('/get_db_data', GetDBData)
 
 # シャットダウンに必要な記述
 trap('INT') { server.shutdown }
