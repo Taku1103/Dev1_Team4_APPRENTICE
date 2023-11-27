@@ -8,7 +8,7 @@
 1. frontendディレクトリに移動して下さい。
 2. node.jsが動く環境を用意しnpmが使えるようにして下さい。
 3. `npm install`でpackage.jsonのライブラリがインストールされます。
-4. `http-server -p 5050`でhttp-serverを起動させて下さい。
+4. `npm run start`でhttp-serverを起動させて下さい。
 
 --- 以下ディレクトリ見取り図　落として全画面で見て下さい　崩れます ---
 

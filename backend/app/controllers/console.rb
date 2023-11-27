@@ -7,7 +7,7 @@ class Console < WEBrick::HTTPServlet::AbstractServlet
     res['Access-Control-Allow-Origin'] = ENV['CLIENT_SERVER']
 
     # レスポンスの中身
-    post_data = 'quiz_data'
+    post_data = 'get_backend_data'
 
     # ここで受け取ったデータを処理する
     res.body = post_data.to_json
