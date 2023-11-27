@@ -1,0 +1,41 @@
+body {
+  position: fixed;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(68, 68, 68);
+  color: rgb(216, 216, 216);
+  width: 100vw;
+}
+
+header {
+  background: rgb(138, 44, 44);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+
+header #home {
+  margin-left: 40px;
+}
+
+header #os_select {
+  margin-right: 40px;
+}
+
+main {
+  background: rgb(54, 157, 119);
+  min-height: calc(100vh - 160px);
+}
+
+footer {
+  background: #94cdff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+
+footer #footer_text {
+  margin-left: 40px;
+}
