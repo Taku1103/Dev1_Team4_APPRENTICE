@@ -39,3 +39,9 @@ footer {
 footer #footer_text {
   margin-left: 40px;
 }
+
+/* 中央揃えにしたいdivタグのクラスにcontainerを付けて下さい 半角スペースcontainerです*/
+.container {
+  width: 75%;
+  margin: 0 auto; /*中央揃え*/
+}
