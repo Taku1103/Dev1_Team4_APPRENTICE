@@ -1,0 +1,41 @@
+#title {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 150px;
+  font-size: 50px;
+}
+
+#level_button_container {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.level_button {
+  background: #4a4a4a;
+  margin: 50px;
+  width: 20%;
+  height: 50px;
+}
+/* level_button選択時に伸びて中身を表示 */
+#level_1.level_button:hover {
+  height: 320px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+#level_2.level_button:hover {
+  height: 320px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+#level_3.level_button:hover {
+  height: 320px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+#shortcut_list.level_button:hover {
+  height: 320px;
+  transition: 0.5s;
+  cursor: pointer;
+}
