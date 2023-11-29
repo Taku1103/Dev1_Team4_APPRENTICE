@@ -1,0 +1,7 @@
+INSERT INTO quiz (question, question_png_path, question_ans_gif, options, explanation, question_level, correct_shortcut_id, question_genre_id)
+VALUES
+  ('What is the capital of France?', '/images/question1.png', '/images/answer1.gif', '{"options": ["Paris", "Berlin", "London", "Madrid"]}', 'Paris is the capital of France.', 1, 1, 1),
+  ('How many continents are there?', '/images/question2.png', '/images/answer2.gif', '{"options": ["5", "6", "7", "8"]}', 'There are seven continents on Earth.', 1, 2, 2),
+  ('Who wrote Romeo and Juliet?', '/images/question3.png', '/images/answer3.gif', '{"options": ["William Shakespeare", "Jane Austen", "Charles Dickens", "Leo Tolstoy"]}', 'Romeo and Juliet was written by William Shakespeare.', 1, 3, 3),
+  ('What is the largest mammal?', '/images/question4.png', '/images/answer4.gif', '{"options": ["Elephant", "Blue Whale", "Giraffe", "Hippopotamus"]}', 'The blue whale is the largest mammal on Earth.', 1, 4, 4),
+  ('Which planet is known as the Red Planet?', '/images/question5.png', '/images/answer5.gif', '{"options": ["Venus", "Mars", "Jupiter", "Saturn"]}', 'Mars is known as the Red Planet.', 1, 5, 5);
