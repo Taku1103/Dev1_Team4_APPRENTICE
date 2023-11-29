@@ -10,23 +10,34 @@
 <body>
     <header>
         <div class="header_text container">
-            <h1>ヘッダー</h1>
+            <h1>VScode Shortcuts</h1>
         </div>
     </header>
     <main>
         <div class="container">
-            <h1>クイズ問題</h1>
+            <h1>問題</h1>
             <div class="position">
                 <div class="left">
                     <h2>left</h2>
-                    <button>前の問題へ</button>
-                    <button>解説へ</button>
+                    <button onclick="history.back()">戻る</button>
+                    <button onclick="location.href='./shortcut.html'">ショートカット一覧へ</button>
+                    <button onclick="location.href='../index.html'">タイトルへ</button>
                 </div>
-                <div class="center">
+                <div class="center" id = "center">
                     <h2>center</h2>
                     <img src="../../backend/public/images/jpeg/vscode_test.jpg" alt="VScode画像">
-                    <div class="answer">
+                    <div class="answer" id="answer">
                         <h2>回答</h2>
+                        <div class="answerInput">
+                            <form id="answerForm" >
+                                <input type="text" placeholder="-Ctrl-" id="ctrlInput">
+                                <input type="text" placeholder="-Shift-" id="shiftInput">
+                                <input type="text" placeholder="-Alt-" id="altInput">
+                                <input type="text" placeholder="keyName" id="keyInput">
+                                <button id="clearButton">クリア</button>
+                            </form>
+                            <button type="submit" onclick="location.href='answer.html'" id="answerButton">回答する</button>
+                        </div>
                     </div>
                 </div>
                 <div class="right">
@@ -45,5 +56,6 @@
             <h1>フッターテスト</h1>
         </div>
     </footer>
+    <script src="../js/quizInput.js"></script>
 </body>
 </html>

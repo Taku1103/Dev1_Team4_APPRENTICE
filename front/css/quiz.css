@@ -13,7 +13,7 @@
 }
 
 .center img {
-    width: 100%;
+    width: 85%;
 }
 
 .right {
@@ -28,3 +28,19 @@ button {
     margin: 20px;
 }
 
+#clearButton {
+    width: 80px;
+    height: 30px;
+}
+
+form input {
+    width: 100px;
+    height: 20px;
+    border-radius: 20px;
+}
+
+#keyInput {
+    width: 200px;
+    height: 40px;
+    border-radius: 20px;
+}
