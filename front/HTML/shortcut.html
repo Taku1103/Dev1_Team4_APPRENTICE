@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>answer</title>
+    <title>quiz</title>
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/quiz.css">
 </head>
@@ -15,7 +15,7 @@
     </header>
     <main>
         <div class="container">
-            <h1>解答</h1>
+            <h1>ショートカット一覧</h1>
             <div class="position">
                 <div class="left">
                     <h2>left</h2>
@@ -25,18 +25,22 @@
                 </div>
                 <div class="center">
                     <h2>center</h2>
-                    <img src="../../backend/public/images/gif/test.gif" alt="VScodeTestGIF">
+                    <img src="../../backend/public/images/jpeg/vscode_test.jpg" alt="VScode画像">
                     <div class="answer">
-                        <h2>解答 一覧</h2>
-                        <p>Ctrl + Shift + L</p>
+                        <h2>回答</h2>
+                        <div class="answerInput">
+                            <form id="answerForm" action="./answer.html" required>
+                                <input type="text" placeholder="keyName">
+                                <button>回答する</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
                 <div class="right">
                     <h2>right</h2>
                     <div class="quiz">
-                        <h2>解答 解説</h2>
-                        <p>Ctrl + Shift + L</p>
-                        <p>解説文テストです。</p>
+                        <h2>問題文</h2>
+                        <p>問題文テストです。</p>
                     </div>
                 </div>
             </div>
