@@ -1,5 +1,4 @@
-
-// DBからデータを取得 
+// DBからデータを取得
 document.getElementById("DBDataButton").addEventListener("click", fetchData);
 
 function fetchData() {

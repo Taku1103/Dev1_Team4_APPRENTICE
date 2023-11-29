@@ -49,6 +49,11 @@ CREATE TABLE IF NOT EXISTS quiz_short (
     PRIMARY KEY (quiz_id , shortcut_id)
 );
 
+source ./sample_data/lead_quiz_short.dump ;
+source ./sample_data/lead_quiz.dump ;
+source ./sample_data/lead_shortcut_genre.dump ;
+source ./sample_data/lead_shortcut.dump ;
+
 -- 外部キー設定
 ALTER TABLE shortcut
     ADD FOREIGN KEY (shortcut_genre_id) REFERENCES shortcut_genre (shortcut_genre_id);

@@ -1,0 +1,12 @@
+INSERT INTO shortcut (shortcut_command, description, shortcut_genre_id)
+VALUES
+  ('Ctrl+C', 'Copy selected text', 1),
+  ('Ctrl+V', 'Paste copied text', 1),
+  ('Ctrl+X', 'Cut selected text', 1),
+  ('Ctrl+Z', 'Undo last action', 1),
+  ('Ctrl+S', 'Save the document', 1),
+  ('Ctrl+P', 'Print the document', 1),
+  ('Ctrl+T', 'Open a new tab', 2),
+  ('Ctrl+Shift+N', 'Open a new incognito window', 2),
+  ('Alt+F4', 'Close the active window', 3),
+  ('Win+D', 'Show or hide the desktop', 3);

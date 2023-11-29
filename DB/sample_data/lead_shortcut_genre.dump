@@ -1,0 +1,7 @@
+INSERT INTO shortcut_genre (short_genre_name)
+VALUES
+  ('General Knowledge'),
+  ('Science'),
+  ('Literature'),
+  ('Nature'),
+  ('Space');
