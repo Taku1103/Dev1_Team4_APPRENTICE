@@ -3,6 +3,7 @@
 # app/controllerにあるファイルを読み込む
 require_relative './app/controllers/console'
 require_relative './app/controllers/get_db_data'
+require_relative './app/controllers/create_quiz'
 
 require 'webrick'
 require 'json'
@@ -24,6 +25,7 @@ server.config[:AccessLog] = [
 #  server.mount("ここにURL","ここにコントローラーに書き出したクラスを指定")
 server.mount('/console', Console)
 server.mount('/get_db_data', GetDBData)
+server.mount('/create_quiz', CreateQuizServlet)
 
 # シャットダウンに必要な記述
 trap('INT') { server.shutdown }

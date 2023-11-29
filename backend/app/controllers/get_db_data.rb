@@ -9,7 +9,6 @@ class GetDBData < WEBrick::HTTPServlet::AbstractServlet
   def do_GET(_req, res)
   # MySQL接続情報　ここにenvファイルから呼び出した環境変数を使用
     client = Mysql2::Client.new(
-  # host:ENV['DB_HOST'],
     username: ENV['DB_USER'],
     password: ENV['DB_PASSWORD'],
     database: ENV['DB_NAME']
@@ -18,7 +17,6 @@ class GetDBData < WEBrick::HTTPServlet::AbstractServlet
     res['Content-Type'] = 'application/json'
     # フロントサーバーからのアクセスを許可するところ　CORSエラーが出るぞ
     res['Access-Control-Allow-Origin'] = ENV['CLIENT_SERVER']
-
 
     result = client.query('SELECT * FROM episodes')
     # 取り出したデータを加工
