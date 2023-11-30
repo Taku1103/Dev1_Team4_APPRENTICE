@@ -2,6 +2,7 @@
 
 # app/controllerにあるファイルを読み込む
 require_relative './app/controllers/create_quiz'
+require_relative './app/controllers/user_answer'
 
 require 'webrick'
 require 'json'
@@ -23,7 +24,7 @@ server.config[:AccessLog] = [
 #  server.mount("ここにURL","ここにコントローラーに書き出したクラスを指定")
 server.mount('/create_quiz', CreateQuizServlet)
 # server.mount('/get_quiz', GetQuizServlet)
-# server.mount('/user_answer', UserAnserServlet)
+server.mount('/user_answer', UserAnswerServlet)
 # server.mount('/response_answer', ResponseAnserServlet)
 # server.mount('/result', ResultServlet)
 
