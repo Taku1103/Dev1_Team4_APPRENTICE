@@ -30,13 +30,17 @@
                         <h2>回答</h2>
                         <div class="answerInput">
                             <form id="answerForm" >
-                                <input type="text" placeholder="-Ctrl-" id="ctrlInput">
-                                <input type="text" placeholder="-Shift-" id="shiftInput">
-                                <input type="text" placeholder="-Alt-" id="altInput">
+                                <input type="checkbox" id="ctrlCheckbox" name="ctrlCheckbox">
+                                <label for="ctrlCheckbox">Ctrl</label>
+                                <input type="checkbox" id="shiftCheckbox" name="shiftCheckbox">
+                                <label for="shiftCheckbox">Shift</label>
+                                <input type="checkbox" id="altCheckbox" name="altCheckbox">
+                                <label for="altCheckbox">Alt</label>
                                 <input type="text" placeholder="keyName" id="keyInput">
                                 <button id="clearButton">クリア</button>
                             </form>
-                            <button type="submit" onclick="location.href='answer.html'" id="answerButton">回答する</button>
+                            <button type="submit"  id="answerButton">回答する</button>
+                            <!-- onclick="location.href='answer.html'" -->
                         </div>
                     </div>
                 </div>
@@ -56,6 +60,7 @@
             <h1>フッターテスト</h1>
         </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js"></script>
     <script src="../js/quizInput.js"></script>
 </body>
 </html>
