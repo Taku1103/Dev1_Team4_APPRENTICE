@@ -9,6 +9,7 @@ document.getElementById("level_2").addEventListener("click", function () {
 document.getElementById("level_3").addEventListener("click", function () {
   fetchLevelData(3);
 });
+document.addEventListener()
 
 function fetchLevelData(level) {
   axios

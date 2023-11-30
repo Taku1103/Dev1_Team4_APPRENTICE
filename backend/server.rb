@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 # app/controllerにあるファイルを読み込む
-require_relative './app/controllers/console'
-require_relative './app/controllers/get_db_data'
 require_relative './app/controllers/create_quiz'
 
 require 'webrick'
@@ -23,9 +21,11 @@ server.config[:AccessLog] = [
 # 既存のエンドポイントにサーブレットをマウント
 # ここでバックエンドのどこにアクセスするとデータが持ってこれるか決めるよ
 #  server.mount("ここにURL","ここにコントローラーに書き出したクラスを指定")
-server.mount('/console', Console)
-server.mount('/get_db_data', GetDBData)
 server.mount('/create_quiz', CreateQuizServlet)
+# server.mount('/get_quiz', GetQuizServlet)
+# server.mount('/user_answer', UserAnserServlet)
+# server.mount('/response_answer', ResponseAnserServlet)
+# server.mount('/result', ResultServlet)
 
 # シャットダウンに必要な記述
 trap('INT') { server.shutdown }
