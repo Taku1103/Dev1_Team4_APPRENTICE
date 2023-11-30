@@ -42,6 +42,17 @@ clearButton.addEventListener("click", function (event) {
 //         shiftInput.value = ""
 // })
 
+window.onload = function(){
+    axios.get("http://localhost:3000/get_quiz")
+    .then((response) => {
+        console.log(response)
+    })
+    .catch((error) => {
+        console.error("Error submitting reqData:", error.message);
+});
+}
+
+
 let reqData = {
     Ctrl : ctrlCheckbox.checked ,
     Shift : shiftCheckbox.checked ,
