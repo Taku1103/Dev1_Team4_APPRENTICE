@@ -42,7 +42,21 @@ clearButton.addEventListener("click", function (event) {
 //         shiftInput.value = ""
 // })
 
-const answerButton = document.getElementById("answerButton");
+
+
+
+window.onload = function(){
+    axios.get("http://localhost:3000/get_quiz")
+    .then((response) => {
+        console.log(response)
+    })
+    .catch((error) => {
+        console.error("Error submitting reqData:", error.message);
+});
+}
+
+
+const answerButton = document.getElementById("answerButton")
 
 answerButton.addEventListener("click", function submitData() {
   let reqData = {
