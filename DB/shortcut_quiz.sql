@@ -1,4 +1,3 @@
--- 上書き設定
 DROP DATABASE IF EXISTS vscode_shortcut_quiz;
 CREATE DATABASE IF NOT EXISTS vscode_shortcut_quiz;
 USE vscode_shortcut_quiz;
@@ -7,61 +6,44 @@ DROP TABLE IF EXISTS shortcut_genre,
                      shortcut,
                      quiz,
                      quiz_short;
-                     
 
 
--- テーブル定義
 
--- shortcut_genreテーブルの作成
-CREATE TABLE IF NOT EXISTS shortcut_genre (
-    shortcut_genre_id 	INT AUTO_INCREMENT,
-    short_genre_name	VARCHAR(50),
-    PRIMARY KEY (shortcut_genre_id)
+-- Shortcut Genre テーブルの作成
+CREATE TABLE shortcut_genre (
+    ショートカットジャンルID INT AUTO_INCREMENT PRIMARY KEY,
+    ショートカットジャンル名 VARCHAR(50) NOT NULL
 );
 
--- Shortcutテーブルの作成
-CREATE TABLE IF NOT EXISTS shortcut (
-    shortcut_id INT AUTO_INCREMENT,
-    shortcut_command VARCHAR(50),
-    description TEXT,
-    shortcut_genre_id INT,
-    PRIMARY KEY (shortcut_id)
+-- Shortcut テーブルの作成
+CREATE TABLE shortcut (
+    ショートカットID INT AUTO_INCREMENT PRIMARY KEY,
+    ショートカットコマンド VARCHAR(50) NOT NULL,
+    ショートカット説明 TEXT,
+    ショートカットジャンルID INT,
+    Ctrl真偽値 TINYINT default 0,
+    Alt真偽値 TINYINT DEFAULT 0,
+    Shift真偽値 TINYINT DEFAULT 0,
+    CtrlK真偽値 TINYINT DEFAULT 0,
+    キー VARCHAR(50),
+    FOREIGN KEY (ショートカットジャンルID) REFERENCES shortcut_genre(ショートカットジャンルID)
 );
 
--- Quizテーブルの作成
-CREATE TABLE IF NOT EXISTS quiz (
-    quiz_id INT AUTO_INCREMENT,
-    question TEXT,
-    question_png_path TEXT,
-    question_ans_gif TEXT,
-    options JSON,
-    explanation TEXT,
-    question_level INT,
-    correct_shortcut_id INT,
-    question_genre_id INT,
-    PRIMARY KEY(quiz_id)
+-- Quiz テーブルの作成
+CREATE TABLE quiz (
+    クイズID INT AUTO_INCREMENT PRIMARY KEY,
+    問題文 TEXT NOT NULL,
+    問題画像パス TEXT,
+    解答GIFパス TEXT,
+    解説 TEXT,
+    問題レベル INT
 );
 
--- quiz-shortテーブルの作成
-CREATE TABLE IF NOT EXISTS quiz_short (
-    quiz_id INT,
-    shortcut_id INT,
-    PRIMARY KEY (quiz_id , shortcut_id)
+-- Quiz-Shortcut 関連テーブルの作成
+CREATE TABLE quiz_short (
+    ショートカットID INT,
+    クイズID INT,
+    PRIMARY KEY (ショートカットID, クイズID),
+    FOREIGN KEY (ショートカットID) REFERENCES shortcut(ショートカットID),
+    FOREIGN KEY (クイズID) REFERENCES quiz(クイズID)
 );
-
-source ./sample_data/lead_quiz_short.dump ;
-source ./sample_data/lead_quiz.dump ;
-source ./sample_data/lead_shortcut_genre.dump ;
-source ./sample_data/lead_shortcut.dump ;
-
--- 外部キー設定
-ALTER TABLE shortcut
-    ADD FOREIGN KEY (shortcut_genre_id) REFERENCES shortcut_genre (shortcut_genre_id);
-
-ALTER TABLE quiz
-    ADD FOREIGN KEY (correct_shortcut_id) REFERENCES Shortcut(shortcut_id),
-    ADD FOREIGN KEY (question_genre_id) REFERENCES shortcut_genre(shortcut_genre_id);
-
-ALTER TABLE quiz_short
-    ADD FOREIGN KEY (quiz_id) REFERENCES Quiz (quiz_id),
-    ADD FOREIGN KEY (shortcut_id) REFERENCES Shortcut (shortcut_id);
