@@ -1,9 +1,9 @@
 const answer = document.getElementById("answer")
 
 let keyInput = document.getElementById("keyInput");
-let ctrlInput = document.getElementById("ctrlInput");
-let altInput = document.getElementById("altInput");
-let shiftInput = document.getElementById("shiftInput");
+let ctrlCheckbox = document.getElementById("ctrlCheckbox");
+let shiftCheckbox = document.getElementById("shiftCheckbox");
+let altCheckbox = document.getElementById("altCheckbox");
 
 const clearButton = document.getElementById("clearButton")
 
@@ -15,16 +15,14 @@ answer.addEventListener("keydown", function(event) {
     const meta = event.metaKey;
 
     if (ctrl){
-        ctrlInput.value = "Ctrl"
+        ctrlCheckbox.checked = ctrl
     }
     if (shift){
-        shiftInput.value = "Shift"
+        shiftCheckbox.checked = shift
     }
     if (alt){
-        altInput.value = "Alt"
+        altCheckbox.checked = alt
     }
-
-    // keyInput.value = key
 })
 
 clearButton.addEventListener("click", function (event) {
@@ -43,3 +41,22 @@ clearButton.addEventListener("click", function (event) {
 // shiftInput.addEventListener("keyup", function(event){
 //         shiftInput.value = ""
 // })
+
+let reqData = {
+    Ctrl : ctrlCheckbox.checked ,
+    Shift : shiftCheckbox.checked ,
+    Alt : altCheckbox.checked ,
+    Key : keyInput.value
+}
+const answerButton = document.getElementById("answerButton")
+
+answerButton.addEventListener("click", function submitData() {
+    axios.post("http://localhost:3000/user_answer", reqData)
+    .then((response) => {
+        console.log(reqData)
+    })
+    .catch((error) => {
+        console.error("Error submitting reqData:", error.message);
+});
+})
+

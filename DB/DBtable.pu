@@ -1,0 +1,55 @@
+' alt+DでER図表示
+
+@startuml shortcut_quiz
+
+' hide the spot
+hide circle
+
+' avoid problems with angled crows feet
+skinparam linetype ortho
+
+
+entity "ver 0.21" {
+
+}
+
+entity "Shortcut" as sho{
+    *ショートカットID <generated> : INT
+    --
+    *ショートカットコマンド	: VARCHAR(50)
+    *ショートカット説明 : TEXT
+    *ショートカットジャンルID <FK>: INT
+    *Ctrl真偽値 :TINYINT(基本は0,1だが-127~127まで入るので注意)
+    *Alt真偽値 :TINYINT
+    *Shift真偽値 :TINYINT
+    *Ctrl+K真偽値 :TINYINT
+    *KEY : VARCHAR(50)
+}
+
+
+entity "quiz" as quiz{
+    *クイズID <generated> INT
+    --
+    *問題文 TEXT
+    *問題画像パス TEXT
+    *解答GIFパス TEXT
+    *解説 TEXT
+    *問題レベル INT
+}
+
+entity "quiz-short" as qs{
+    *ショートカットID <FK> : INT
+    --
+    *クイズID <FK> : INT
+}
+entity "shortcut_genre" as sg{
+    *ショートカットジャンルID <generated> : INT
+    --
+    *ショートカットジャンル名 : VARCHAR(50)
+}
+
+sho}|--||sg
+qs}|--||quiz
+sho||--|{qs
+
+@enduml
