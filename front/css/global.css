@@ -7,8 +7,8 @@ body {
   width: 100vw;
 }
 
-header {
-  background: rgb(138, 44, 44);
+header ,footer {
+  background: #2489c4;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -24,17 +24,11 @@ header #os_select {
 }
 
 main {
-  background: rgb(54, 157, 119);
+  background: rgb(0, 0, 0);
   min-height: calc(100vh - 160px);
 }
 
-footer {
-  background: #94cdff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 80px;
-}
+
 
 footer #footer_text {
   margin-left: 40px;
