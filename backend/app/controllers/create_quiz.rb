@@ -20,6 +20,7 @@ class CreateQuizServlet < WEBrick::HTTPServlet::AbstractServlet
     create_quiz = CreateQuiz.new(level_value) # レベルを元にクイズを生成
     create_quiz.array_push_quiz_id
     contens_data = create_quiz.push_quiz_contents
-    res.body = contens_data.to_json
+    message = "seccses! create_quiz!"
+    res.body = message.to_json
   end
 end
