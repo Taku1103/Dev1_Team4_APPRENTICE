@@ -1,4 +1,6 @@
 const answer = document.getElementById("answer");
+const answerButton = document.getElementById("answerButton")
+const clearButton = document.getElementById("clearButton");
 
 let keyInput = document.getElementById("keyInput");
 let ctrlCheckbox = document.getElementById("ctrlCheckbox");
@@ -6,7 +8,6 @@ let shiftCheckbox = document.getElementById("shiftCheckbox");
 let altCheckbox = document.getElementById("altCheckbox");
 let ctrlKCheckbox = document.getElementById("ctrlKCheckbox");
 
-const clearButton = document.getElementById("clearButton");
 
 answer.addEventListener("keydown", function (event) {
   const key = event.key;
@@ -34,19 +35,6 @@ clearButton.addEventListener("click", function (event) {
   ctrlKCheckbox.value = "";
 });
 
-// ctrlInput.addEventListener("keyup", function(event){
-//         ctrlInput.value = ""
-// })
-// altInput.addEventListener("keyup", function(event){
-//         altInput.value = ""
-// })
-// shiftInput.addEventListener("keyup", function(event){
-//         shiftInput.value = ""
-// })
-
-
-
-
 window.onload = function(){
     axios.get("http://localhost:3000/get_quiz")
     .then((response) => {
@@ -56,9 +44,6 @@ window.onload = function(){
         console.error("Error submitting reqData:", error.message);
 });
 }
-
-
-const answerButton = document.getElementById("answerButton")
 
 answerButton.addEventListener("click", function submitData() {
   let reqData = {
