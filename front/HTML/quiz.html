@@ -18,18 +18,18 @@
             <h1>問題</h1>
             <div class="position">
                 <div class="left">
-                    <h2>left</h2>
                     <button onclick="history.back()">戻る</button>
                     <button onclick="location.href='./shortcut.html'">ショートカット一覧へ</button>
                     <button onclick="location.href='../index.html'">タイトルへ</button>
                 </div>
                 <div class="center" id = "center">
-                    <h2>center</h2>
                     <img src="../../backend/public/images/jpeg/vscode_test.jpg" alt="VScode画像">
                     <div class="answer" id="answer">
                         <h2>回答</h2>
                         <div class="answerInput">
                             <form id="answerForm" >
+                                <input type="checkbox" id="ctrlKCheckbox" name="ctrlKCheckbox">
+                                <label for="ctrlKCheckbox">Ctrl+K</label>
                                 <input type="checkbox" id="ctrlCheckbox" name="ctrlCheckbox">
                                 <label for="ctrlCheckbox">Ctrl</label>
                                 <input type="checkbox" id="shiftCheckbox" name="shiftCheckbox">
@@ -45,7 +45,6 @@
                     </div>
                 </div>
                 <div class="right">
-                    <h2>right</h2>
                     <div class="quiz">
                         <h2>問題文</h2>
                         <p>問題文テストです。</p>
@@ -57,7 +56,7 @@
 
     <footer>
         <div class="footer_text container">
-            <h1>フッターテスト</h1>
+            <h1></h1>
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js"></script>

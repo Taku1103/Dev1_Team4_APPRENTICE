@@ -4,6 +4,7 @@ let keyInput = document.getElementById("keyInput");
 let ctrlCheckbox = document.getElementById("ctrlCheckbox");
 let shiftCheckbox = document.getElementById("shiftCheckbox");
 let altCheckbox = document.getElementById("altCheckbox");
+let ctrlKCheckbox = document.getElementById("ctrlKCheckbox");
 
 const clearButton = document.getElementById("clearButton");
 
@@ -30,6 +31,7 @@ clearButton.addEventListener("click", function (event) {
   shiftInput.value = "";
   altInput.value = "";
   keyInput.value = "";
+  ctrlKCheckbox.value = "";
 });
 
 // ctrlInput.addEventListener("keyup", function(event){
@@ -60,6 +62,7 @@ const answerButton = document.getElementById("answerButton")
 
 answerButton.addEventListener("click", function submitData() {
   let reqData = {
+    CtrlK: ctrlKCheckbox.checked,
     Ctrl: ctrlCheckbox.checked,
     Shift: shiftCheckbox.checked,
     Alt: altCheckbox.checked,
@@ -68,7 +71,7 @@ answerButton.addEventListener("click", function submitData() {
   console.log(reqData);
   axios
     .get(
-      `http://localhost:3000/user_answer/?ctrl=${reqData.Ctrl}&shiht=${reqData.Shift}&alt=${reqData.Alt}&key=${reqData.Key}`
+      `http://localhost:3000/user_answer/?ctrlk=&${reqData.CtrlK}&ctrl=${reqData.Ctrl}&shiht=${reqData.Shift}&alt=${reqData.Alt}&key=${reqData.Key}`
     )
     .then((response) => {
       console.log(response);
