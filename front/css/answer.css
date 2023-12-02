@@ -1,0 +1,56 @@
+.btn,
+div.btn,
+button.btn {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.5;
+  position: relative;
+  display: inline-block;
+  padding: 1rem 4rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: #212529;
+  border-radius: 0.5rem;
+}
+
+
+.btn-border-gradient-wrap {
+  display: inline-block;
+  padding: 0.2rem;
+  border-radius: 0.5rem;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(rgb(54, 84, 165)),
+    to(rgb(122, 174, 233))
+  );
+  background: -webkit-linear-gradient(left, rgb(54, 84, 165), rgb(122, 174, 233));
+  background: linear-gradient(to right, rgb(54, 84, 165), rgb(122, 174, 233));
+}
+
+.btn-border-gradient-wrap:hover {
+  background: -webkit-gradient(
+    linear,
+    right top,
+    left top,
+    from(rgb(54, 84, 165)),
+    to(rgb(122, 174, 233))
+  );
+  background: -webkit-linear-gradient(right, rgb(54, 84, 165), rgb(122, 174, 233));
+  background: linear-gradient(to left, rgb(54, 84, 165), rgb(122, 174, 233));
+}
+
+div.btn-border-gradient {
+  color: rgb(122, 174, 233);
+  background: #000;
+}
