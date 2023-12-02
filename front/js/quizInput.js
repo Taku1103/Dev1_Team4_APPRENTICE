@@ -50,9 +50,11 @@ answerButton.addEventListener("click", function submitData() {
     .get(
       `http://localhost:3000/user_answer/?ctrlk=&${reqData.CtrlK}&ctrl=${reqData.Ctrl}&shiht=${reqData.Shift}&alt=${reqData.Alt}&key=${reqData.Key}`
     )
+
     .then((response) => {
       console.log(response);
       window.location.href = "http://127.0.0.1:5050/HTML/answer.html";
+
     })
     .catch((error) => {
       console.error("Error submitting reqData:", error.message);
