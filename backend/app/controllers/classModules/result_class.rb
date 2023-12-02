@@ -8,7 +8,7 @@ require 'json'
 
 class Result
   # 正解した結果が入る
-  @@correct_list = []
+  @@correct_result = []
   @@user_answer = {}
   @@quiz_num = 0
 
@@ -32,7 +32,8 @@ class UserAnswer < Result
       value = user_input[key]
       @@user_answer[key] = value == "true" ? true : false
     end
-    @@user_answer['key'] = user_input['key']
+    input_key = user_input['key'].downcase
+    @@user_answer['key'] = input_key[0,1]
     @@user_answer
   end
 end
@@ -43,7 +44,7 @@ class CheckAnswers < Result
     quiz_data = Quiz.to_result_response
     # どのクイズを行なっているか
     @@quiz_num = quiz_data[:quiz_order_num]
-    current_id = quiz_data[:quiz_id_array][quiz_data[:quiz_order_num] - 1]
+    current_id = quiz_data[:quiz_id_array][quiz_data[:quiz_order_num]]
     # quiz_data[:quiz_content_hash][current_id]
     shortcut_db_data = @client.query(
       "SELECT *
@@ -78,8 +79,6 @@ class CheckAnswers < Result
     end
     answer_hash = {correct_hash:correct_hash,answer_explain_hash:answer_explain_hash}
   end
-
-
 
   def check_answer(answer_hash)
     # 0 1 をboolに変換
@@ -118,9 +117,18 @@ class CheckAnswers < Result
 
     result = !correct_list.include?(false)
 
+    @@correct_result.push(true ? true : false)
+
     answer_hash[:answer_explain_hash]['解答結果'] ||= result
     answer_hash[:answer_explain_hash]['ユーザー解答'] ||= @@user_answer
     answer_hash[:answer_explain_hash]['問題数'] ||= @@quiz_num
     answer_hash[:answer_explain_hash]
+  end
+
+  class FinalResult < Result
+    def total_correct
+      a = @@correct_result
+      p a
+    end
   end
 end

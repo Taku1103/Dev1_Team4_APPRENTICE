@@ -59,13 +59,21 @@ class CreateQuiz < Quiz
   def push_quiz_contents
     @@quiz_content_hash = {} # 初期化
     @@quiz_id_array.each_with_object({}) do |id, quiz_content_hash|
-      quiz_content_data = @client.query("SELECT * FROM quiz WHERE クイズID = #{id}").first
+      quiz_content_data = @client.query(
+        "SELECT *
+        FROM quiz q
+        LEFT JOIN quiz_short qs ON qs.クイズID = q.クイズID
+        LEFT JOIN shortcut sc ON sc.ショートカットID = qs.ショートカットID
+        LEFT JOIN shortcut_genre sg ON sg.ショートカットジャンルID = sc.ショートカットジャンルID
+        WHERE q.クイズID = #{id}"
+        ).first
       next unless quiz_content_data
   
       @@quiz_content_hash[id] = {
+        "問題レベル" => quiz_content_data["問題レベル"],
         "問題文" => quiz_content_data["問題文"],
         "問題画像パス" => quiz_content_data["問題画像パス"],
-        "解説" => quiz_content_data["解説"]
+        "ショートカットジャンル名" => quiz_content_data["ショートカットジャンル名"]
       }
     end
   end
@@ -74,9 +82,10 @@ end
 # quiz_id_arrayを回してquiz_content_hashの中身を１個つづ取り出す
 class GetQuiz < Quiz
   def get_quiz_contents
-    if @@quiz_order_num <= @@quiz_order_max
+    if @@quiz_order_num < @@quiz_order_max
       current_quiz = @@quiz_content_hash[@@quiz_id_array[@@quiz_order_num]]
       @@quiz_order_num += 1
+      current_quiz['問題数'] = @@quiz_order_num
       current_quiz
     else
       @@quiz_order_num = 0
