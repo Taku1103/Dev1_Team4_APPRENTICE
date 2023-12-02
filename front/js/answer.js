@@ -1,14 +1,43 @@
+let answer_gif = document.getElementById("answer_gif")
+let answer_shortcut_ex = document.getElementById("answer_shortcut_ex")
+let answer_shortcut_ans = document.getElementById("answer_shortcut_ans")
+let is_correct_img = document.getElementById("is_correct_img")
+let explanation = document.getElementById("explanation")
+
+const nextButton = document.getElementById("nextButton")
+
 window.onload = function() {
     axios.get("http://localhost:3000/response_answer")
     .then((response) => {
         console.log(response)
+        console.log(response.data)
+        answer_gif.src = response.data["解答GIFパス"];
+        answer_shortcut_ex.innerText = response.data["ショートカットコマンド"];
+        answer_shortcut_ans.innerText = response.data["ショートカットコマンド"];
+        explanation.innerText = response.data['解説']
+
+        if (response.data["解答結果"]) {
+            is_correct_img.src = "../img/circle.png"
+        }else {
+            is_correct_img.src = "../img/plus.png"
+        }
+
     })
     .catch((error) => {
         console.error("Error submitting reqData:", error.message);
 });
 };
 
-o_img = document.getElementById("o_img")
-x_img = document.getElementById("x_img")
+nextButton.addEventListener("click", function submit(){
+    axios.get(``)
+    .then((response) => {
+        console.log(response);
+        window.location.href = "http://127.0.0.1:5050/HTML/quiz.html";
+
+      })
+      .catch((error) => {
+        console.error("Error submitting Data:", error.message);
+      });
+})
 
 // 正誤情報からstyle.display = "none"とか"block"に切り替える
