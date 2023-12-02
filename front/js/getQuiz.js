@@ -18,5 +18,16 @@ window.onload = function(){
     })
     .catch((error) => {
         console.error("Error submitting reqData:", error.message);
-});
+    });
+
+    axios.get('http://localhost:3000/get_png', {responseType: 'blob'})
+    .then(response => {
+    let imageNode = document.getElementById('mondai_img');
+    let imgUrl = URL.createObjectURL(response.data)
+    imageNode.src = imgUrl
+    })
+    .catch((error) => {
+        console.error("Error submitting reqData:", error.message);
+    });
+
 }
