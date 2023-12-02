@@ -128,7 +128,7 @@ button.btn {
     from(rgb(54, 84, 165)),
     to(rgb(122, 174, 233))
   );
-  background: -webkit-linear-gradient(left, rgb(54, 84, 165), rgb(122, 174, 233));
+  background: -webkit-linear-gradinent(left, rgb(54, 84, 165), rgb(122, 174, 233));
   background: linear-gradient(to right, rgb(54, 84, 165), rgb(122, 174, 233));
 }
 
