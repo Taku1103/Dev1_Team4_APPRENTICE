@@ -3,6 +3,8 @@
 # app/controllerにあるファイルを読み込む
 require_relative './app/controllers/create_quiz'
 require_relative './app/controllers/get_quiz'
+require_relative './app/controllers/get_png'
+require_relative './app/controllers/get_gif'
 require_relative './app/controllers/user_answer'
 require_relative './app/controllers/response_answers'
 require_relative './app/controllers/is_question_left'
@@ -33,6 +35,8 @@ server.mount('/user_answer', UserAnswerServlet)
 server.mount('/response_answer', ResponseAnswerServlet)
 server.mount('/result', ResultServlet)
 server.mount('/is_next_question', IsQuestionLeftServlet)
+server.mount('/get_png', GetPngServlet)
+server.mount('/get_gif', GetGifServlet)
 
 # シャットダウンに必要な記述
 trap('INT') { server.shutdown }
