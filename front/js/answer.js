@@ -21,11 +21,20 @@ window.onload = function() {
         }else {
             is_correct_img.src = "../img/plus.png"
         }
-
     })
     .catch((error) => {
         console.error("Error submitting reqData:", error.message);
 });
+
+    axios.get('http://localhost:3000/get_gif', {responseType: 'blob'})
+    .then(response => {
+    let imageNode = document.getElementById('answer_gif');
+    let imgUrl = URL.createObjectURL(response.data)
+    imageNode.src = imgUrl
+    })
+    .catch((error) => {
+        console.error("Error submitting imgData:", error.message);
+    });
 };
 
 nextButton.addEventListener("click", function submit(){
