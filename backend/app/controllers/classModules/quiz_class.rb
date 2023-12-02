@@ -9,6 +9,7 @@ class Quiz
   @@quiz_content_hash = {} # 以下ハッシュのキー
   @@quiz_order_num = 0 #何問目かの初期値
   @@quiz_order_max = 5 # ここで問題数を設定
+  @@current_quiz = {}
   
   def initialize
     @client = Mysql2::Client.new(
@@ -74,6 +75,7 @@ class CreateQuiz < Quiz
         "問題レベル" => quiz_content_data["問題レベル"],
         "問題文" => quiz_content_data["問題文"],
         "問題画像パス" => quiz_content_data["問題画像パス"],
+        "解答GIFパス" => quiz_content_data["解答GIFパス"],
         "ショートカットジャンル名" => quiz_content_data["ショートカットジャンル名"]
       }
     end
@@ -82,14 +84,30 @@ end
 
 # quiz_id_arrayを回してquiz_content_hashの中身を１個つづ取り出す
 class GetQuiz < Quiz
+  def initialize
+    @png_path = ""
+    @gif_path = ""
+    
+  end
+
   def get_quiz_contents
     if @@quiz_order_num < @@quiz_order_max
       current_quiz = @@quiz_content_hash[@@quiz_id_array[@@quiz_order_num]]
+      @png_path = current_quiz["問題画像パス"]
+      @gif_path = current_quiz["解答GIFパス"]
       quiz_num = @@quiz_order_num += 1
       current_quiz['問題数'] = quiz_num
       current_quiz
     else
       @@quiz_order_num = 0
     end
+  end
+
+  def self.get_png_path
+    @png_path
+  end
+
+  def self.get_gif_path
+    @gif_path
   end
 end

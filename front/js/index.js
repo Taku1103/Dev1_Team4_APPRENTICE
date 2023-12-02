@@ -22,3 +22,4 @@ function fetchLevelData(level) {
       console.error("Error fetching data:", error.message);
     });
 }
+
