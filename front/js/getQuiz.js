@@ -11,7 +11,7 @@ window.onload = function(){
         console.log(response);
         console.log(response.data);
         mondai.innerText = `問題数:${response.data["問題数"]}`;
-        mondai_level.innerText = `問題レベル:${response.data["問題レベル"]}`;
+        mondai_level.innerText = `レベル:${response.data["問題レベル"]}`;
         genre.innerText = `ジャンル:${response.data["ショートカットジャンル名"]}`;
         mondai_img.src = response.data["問題画像パス"];
         mondai_text.innerText = response.data["問題文"];
