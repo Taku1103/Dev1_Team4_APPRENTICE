@@ -109,7 +109,7 @@ class CheckAnswers < Result
     else
       correct_list.push(false)
     end
-    
+
     if answer_hash[:correct_hash]['キー'] === @@user_answer['key']
       correct_list.push(true)
     else
@@ -137,9 +137,9 @@ end
 class IsQuestionLeft < Result
   def is_next_question
     if @@quiz_num == @@quiz_max
-      false
-    else
       true
+    else
+      false
     end
   end
 end
