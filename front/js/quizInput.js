@@ -38,7 +38,7 @@ answer.addEventListener("keydown", function (event) {
 window.onload = function(){
     axios.get("http://localhost:3000/get_quiz")
     .then((response) => {
-        console.log(response)
+        console.log(response.data.問題文)
     })
     .catch((error) => {
         console.error("Error submitting reqData:", error.message);
@@ -58,8 +58,9 @@ answerButton.addEventListener("click", function submitData() {
     .get(
       `http://localhost:3000/user_answer/?ctrlk=&${reqData.CtrlK}&ctrl=${reqData.Ctrl}&shiht=${reqData.Shift}&alt=${reqData.Alt}&key=${reqData.Key}`
     )
-    .then((response) => {
-      console.log(response);
+    .then((res) => {
+      console.log(res.data.問題文);
+      console.log(res);
     })
     .catch((error) => {
       console.error("Error submitting reqData:", error.message);
