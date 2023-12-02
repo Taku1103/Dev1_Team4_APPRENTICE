@@ -8,7 +8,7 @@ require 'json'
 
 class Result
   # 正解した結果が入る
-  @@correct_result = []
+  @@result_hash = {}
   @@user_answer = {}
   @@quiz_num = 0
   @@quiz_max = 0
@@ -116,21 +116,29 @@ class CheckAnswers < Result
       correct_list.push(false)
     end
 
+    # correct_listにfalseがあれば不正解
     result = !correct_list.include?(false)
 
-    @@correct_result.push(result ? true : false)
-
+    @@result_hash['正誤履歴'] ||= {}
+    @@result_hash['正誤履歴'][@@quiz_num] = result
+    if result
+      @@result_hash['得点'] ||= 0 #trueなら加算
+      @@result_hash['得点'] += 1 # trueなら1を加算
+    end
     answer_hash[:answer_explain_hash]['解答結果'] ||= result
     answer_hash[:answer_explain_hash]['ユーザー解答'] ||= @@user_answer
     answer_hash[:answer_explain_hash]['問題数'] ||= @@quiz_num
+    
     answer_hash[:answer_explain_hash]
   end
 end
 
 class FinalResult < Result
-  def total_correct
-    f_result = @@correct_result.count(true)
-    f_result
+  def result_response
+    @@result_hash['最大問題数'] ||= @@quiz_max
+    true_count = @@result_hash['正誤履歴'].values.count(true)
+    @@result_hash['正解数'] ||= true_count
+    @@result_hash
   end
 end
 
@@ -143,3 +151,4 @@ class IsQuestionLeft < Result
     end
   end
 end
+
