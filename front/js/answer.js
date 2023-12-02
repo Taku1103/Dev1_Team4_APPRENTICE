@@ -29,15 +29,17 @@ window.onload = function() {
 };
 
 nextButton.addEventListener("click", function submit(){
-    axios.get(``)
+    axios.get(`http://localhost:3000/is_next_question`)
     .then((response) => {
         console.log(response);
-        window.location.href = "http://127.0.0.1:5050/HTML/quiz.html";
-
+        //result画面遷移フラグ trueでresult falseで次の問題
+        if(response.data){
+        window.location.href = "http://127.0.0.1:5050/HTML/result.html";
+        }else {
+            window.location.href = "http://127.0.0.1:5050/HTML/quiz.html";
+        }
       })
       .catch((error) => {
         console.error("Error submitting Data:", error.message);
       });
 })
-
-// 正誤情報からstyle.display = "none"とか"block"に切り替える
