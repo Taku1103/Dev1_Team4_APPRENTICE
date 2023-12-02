@@ -9,6 +9,7 @@ require_relative './app/controllers/user_answer'
 require_relative './app/controllers/response_answers'
 require_relative './app/controllers/is_question_left'
 require_relative './app/controllers/result'
+require_relative './app/controllers/result_init'
 
 
 require 'webrick'
@@ -31,12 +32,13 @@ server.config[:AccessLog] = [
 #  server.mount("ここにURL","ここにコントローラーに書き出したクラスを指定")
 server.mount('/create_quiz', CreateQuizServlet)
 server.mount('/get_quiz', GetQuizServlet)
-server.mount('/user_answer', UserAnswerServlet)
-server.mount('/response_answer', ResponseAnswerServlet)
-server.mount('/result', ResultServlet)
-server.mount('/is_next_question', IsQuestionLeftServlet)
 server.mount('/get_png', GetPngServlet)
 server.mount('/get_gif', GetGifServlet)
+server.mount('/user_answer', UserAnswerServlet)
+server.mount('/response_answer', ResponseAnswerServlet)
+server.mount('/is_next_question', IsQuestionLeftServlet)
+server.mount('/result', ResultServlet)
+server.mount('/result_init', ResultInitializeServlet)
 
 # シャットダウンに必要な記述
 trap('INT') { server.shutdown }
