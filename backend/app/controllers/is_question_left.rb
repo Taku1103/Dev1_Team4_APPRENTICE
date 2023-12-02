@@ -1,4 +1,4 @@
-require_relative './classModules/result_class'
+require_relative "./classModules/result_class.rb"
 
 require 'webrick'
 require 'json'
@@ -7,15 +7,13 @@ require 'dotenv'
 Dotenv.load
 
 # 名前にサーブレットつけたクラスはAPIに関するもの
-class ResultServlet < WEBrick::HTTPServlet::AbstractServlet
+class IsQuestionLeftServlet < WEBrick::HTTPServlet::AbstractServlet
   def do_GET(_req, res)
     res.status = 200
     res['Content-Type'] = 'application/json'
     res['Access-Control-Allow-Origin'] = ENV['CLIENT_SERVER']
-
-    result_class = FinalResult.new
-    t = result_class.total_correct
-    msg = {message: "send_user_input"}
-    res.body = t.to_json
+    next_quiz_class = IsQuestionLeft.new
+    next_bool = next_quiz_class.is_next_question
+    res.body = next_bool.to_json
   end
 end

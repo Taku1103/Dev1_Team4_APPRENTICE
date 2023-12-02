@@ -11,6 +11,7 @@ class Result
   @@correct_result = []
   @@user_answer = {}
   @@quiz_num = 0
+  @@quiz_max = 0
 
 
   def initialize
@@ -44,8 +45,8 @@ class CheckAnswers < Result
     quiz_data = Quiz.to_result_response
     # どのクイズを行なっているか
     @@quiz_num = quiz_data[:quiz_order_num]
-    current_id = quiz_data[:quiz_id_array][quiz_data[:quiz_order_num]]
-    # quiz_data[:quiz_content_hash][current_id]
+    @@quiz_max = quiz_data[:quiz_order_max]
+    current_id = quiz_data[:quiz_id_array][@@quiz_num - 1]
     shortcut_db_data = @client.query(
       "SELECT *
       FROM quiz q
@@ -117,18 +118,27 @@ class CheckAnswers < Result
 
     result = !correct_list.include?(false)
 
-    @@correct_result.push(true ? true : false)
+    @@correct_result.push(result ? true : false)
 
     answer_hash[:answer_explain_hash]['解答結果'] ||= result
     answer_hash[:answer_explain_hash]['ユーザー解答'] ||= @@user_answer
     answer_hash[:answer_explain_hash]['問題数'] ||= @@quiz_num
     answer_hash[:answer_explain_hash]
   end
+end
 
-  class FinalResult < Result
-    def total_correct
-      a = @@correct_result
-      p a
+class FinalResult < Result
+  def total_correct
+    @@correct_result
+  end
+end
+
+class IsQuestionLeft < Result
+  def is_next_question
+    if @@quiz_num == @@quiz_max
+      false
+    else
+      true
     end
   end
 end

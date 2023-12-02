@@ -25,7 +25,8 @@ class Quiz
       sql_connection: @client,
       quiz_id_array: @@quiz_id_array,
       quiz_content_hash: @@quiz_content_hash,
-      quiz_order_num: @@quiz_order_num
+      quiz_order_num: @@quiz_order_num,
+      quiz_order_max: @@quiz_order_max
     }
   end
   
@@ -84,12 +85,11 @@ class GetQuiz < Quiz
   def get_quiz_contents
     if @@quiz_order_num < @@quiz_order_max
       current_quiz = @@quiz_content_hash[@@quiz_id_array[@@quiz_order_num]]
-      @@quiz_order_num += 1
-      current_quiz['問題数'] = @@quiz_order_num
+      quiz_num = @@quiz_order_num += 1
+      current_quiz['問題数'] = quiz_num
       current_quiz
     else
       @@quiz_order_num = 0
-      nil
     end
   end
 end
