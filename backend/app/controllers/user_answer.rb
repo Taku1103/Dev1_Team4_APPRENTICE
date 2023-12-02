@@ -16,7 +16,7 @@ class UserAnswerServlet < WEBrick::HTTPServlet::AbstractServlet
     user_answer_input = _req.query
     user_answer_class= UserAnswer.new
     input = user_answer_class.user_input_keep(user_answer_input)
-    message = "send_user_input"
-    res.body = message.to_json
+    msg = {message: "send_user_input"}
+    res.body = input.to_json
   end
 end
