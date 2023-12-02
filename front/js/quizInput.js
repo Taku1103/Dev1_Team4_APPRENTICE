@@ -27,13 +27,13 @@ answer.addEventListener("keydown", function (event) {
   }
 });
 
-clearButton.addEventListener("click", function (event) {
-  ctrlInput.value = "";
-  shiftInput.value = "";
-  altInput.value = "";
-  keyInput.value = "";
-  ctrlKCheckbox.value = "";
-});
+// clearButton.addEventListener("click", function (event) {
+//   ctrlInput.value = "";
+//   shiftInput.value = "";
+//   altInput.value = "";
+//   keyInput.value = "";
+//   ctrlKCheckbox.value = "";
+// });
 
 window.onload = function(){
     axios.get("http://localhost:3000/get_quiz")
