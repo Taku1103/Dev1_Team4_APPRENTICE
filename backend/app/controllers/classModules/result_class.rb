@@ -136,8 +136,6 @@ end
 class FinalResult < Result
   def result_response
     @@result_hash['最大問題数'] ||= @@quiz_max
-    true_count = @@result_hash['正誤履歴'].values.count(true)
-    @@result_hash['正解数'] ||= true_count
     @@result_hash
   end
 end
@@ -152,3 +150,9 @@ class IsQuestionLeft < Result
   end
 end
 
+class ResultInitialize < Result
+  def result_init
+    @@result_hash['得点'] = 0
+    @@result_hash['正誤履歴'] = {}
+  end
+end
