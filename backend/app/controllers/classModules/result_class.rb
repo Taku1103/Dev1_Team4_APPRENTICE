@@ -153,5 +153,6 @@ end
 class ResultInitialize < Result
   def result_init
     @@result_hash['得点'] = 0
+    @@result_hash['正誤履歴'] = {}
   end
 end
