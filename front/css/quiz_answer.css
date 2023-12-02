@@ -22,8 +22,8 @@ a,a:visited{
     width: 70%;
 }
 
-.center img {
-    width: 85%;
+#mondai_img {
+    width: 80%;
     border-radius: 10px;
 }
 
@@ -78,15 +78,12 @@ button {
 }
 
 .center_bottom{
-    /* display: flex; */
+    display: flex;
     justify-content: space-between;
 }
 
 
-.oorx img {
-    width: 100px;
 
-}
 
 
 
