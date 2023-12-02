@@ -78,8 +78,8 @@ button {
 }
 
 .center_bottom{
-    display: flex;
-    justify-content: center;
+    /* display: flex; */
+    justify-content: space-between;
 }
 
 
@@ -128,7 +128,7 @@ button.btn {
     from(rgb(54, 84, 165)),
     to(rgb(122, 174, 233))
   );
-  background: -webkit-linear-gradinent(left, rgb(54, 84, 165), rgb(122, 174, 233));
+  background: -webkit-linear-gradient(left, rgb(54, 84, 165), rgb(122, 174, 233));
   background: linear-gradient(to right, rgb(54, 84, 165), rgb(122, 174, 233));
 }
 
@@ -181,14 +181,6 @@ label {
     border: 3px solid #fff;
     border-radius: 100px;
     transition: background-color .2s;
-  }
-  
-  label:first-of-type {
-    transform: translateX(-40px);
-  }
-  
-  label:last-of-type {
-    transform: translateX(40px);
   }
   
   label:hover, input:focus + label {

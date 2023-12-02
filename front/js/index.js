@@ -9,7 +9,9 @@ document.getElementById("level_2").addEventListener("click", function () {
 document.getElementById("level_3").addEventListener("click", function () {
   fetchLevelData(3);
 });
-document.addEventListener();
+document.addEventListener("shortcut_list").addEventListener("click", function () {
+  window.location.href = "../HTML/shortcut.html"
+});
 
 function fetchLevelData(level) {
   axios

@@ -1,27 +1,39 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <link rel="stylesheet" href="../css/global.css" />
-  <link rel="stylesheet" href="./css/result.css" />
   <head>
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/result.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Frontend Example</title>
+    <title>result</title>
   </head>
   <body>
     <header>
-      <div id="home">home</div>
-      <div id="os_select">OS select</div>
+      <div class="header_text container">
+          <div class="logo">
+              <img src="../../backend/public/images/jpeg/vscodelogo" alt="vscode_logo">
+          </div>
+          <a href="../index.html"><h1>VScode Shortcut Quiz</h1></a>
+      </div>
     </header>
     <main>
-      <h1  class="container" id="title">結果発表</h1>
-      <div>
-
+      <div class="container position">
+        <div class="center">
+          <h1 id="title">結果発表</h1>
+          <p id="point"> /test </p>
+          <div class="correct_history"></div>
+          <div class="btn-border-gradient-wrap">
+            <div class="btn btn-border-gradient" onclick="location.href='../index.html'" id="answerButton">タイトルへ</div>
+          </div>
+        </div>
       </div>
     </main>
+
     <footer>
-      <div id="footer_text">footer</div>
+      <div id="footer_text"></div>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js"></script>
+    <script src="./js/result.js"></script>
   </body>
-  <script src="https://cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js"></script>
-  <script src="./js/index.js"></script>
 </html>
