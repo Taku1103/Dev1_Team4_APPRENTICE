@@ -7,7 +7,7 @@ require_relative './app/controllers/get_png'
 require_relative './app/controllers/get_gif'
 require_relative './app/controllers/user_answer'
 require_relative './app/controllers/response_answers'
-require_relative './app/controllers/is_quiestion_left'
+require_relative './app/controllers/is_question_left'
 require_relative './app/controllers/result'
 
 
