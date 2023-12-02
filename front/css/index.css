@@ -16,13 +16,15 @@
   background: #4a4a4a;
   margin: 50px;
   width: 20%;
-  height: 50px;
+  height: 320px;
+  font-size: 30px;
+  cursor: pointer;
 }
 /* level_button選択時に伸びて中身を表示 */
-#level_1.level_button:hover {
+/* #level_1.level_button:hover {
   height: 320px;
   transition: 0.5s;
-  cursor: pointer;
+  
 }
 #level_2.level_button:hover {
   height: 320px;
@@ -38,4 +40,4 @@
   height: 320px;
   transition: 0.5s;
   cursor: pointer;
-}
+} */
