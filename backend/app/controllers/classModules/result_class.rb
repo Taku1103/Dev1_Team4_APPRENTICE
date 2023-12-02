@@ -10,6 +10,7 @@ class Result
   # 正解した結果が入る
   @@correct_list = []
   @@user_answer = {}
+  @@quiz_num = 0
 
 
   def initialize
@@ -41,6 +42,7 @@ class CheckAnswers < Result
   def res_answer_data
     quiz_data = Quiz.to_result_response
     # どのクイズを行なっているか
+    @@quiz_num = quiz_data[:quiz_order_num]
     current_id = quiz_data[:quiz_id_array][quiz_data[:quiz_order_num] - 1]
     # quiz_data[:quiz_content_hash][current_id]
     shortcut_db_data = @client.query(
@@ -48,6 +50,7 @@ class CheckAnswers < Result
       FROM quiz q
       LEFT JOIN quiz_short qs ON qs.クイズID = q.クイズID
       LEFT JOIN shortcut sc ON sc.ショートカットID = qs.ショートカットID
+      LEFT JOIN shortcut_genre sg ON sg.ショートカットジャンルID = sc.ショートカットジャンルID
       WHERE q.クイズID = #{current_id}"
     )
 
@@ -65,6 +68,8 @@ class CheckAnswers < Result
     answer_explain_hash = {}
     shortcut_db_data.each do |row|
       answer_explain_hash = {
+        '問題レベル'=> row['問題レベル'],
+        'ショートカットジャンル名' => row['ショートカットジャンル名'],
         '解答GIFパス' => row['解答GIFパス'],
         '解説' => row['解説'],
         'ショートカットコマンド' => row['ショートカットコマンド'],
@@ -113,8 +118,9 @@ class CheckAnswers < Result
 
     result = !correct_list.include?(false)
 
-    answer_hash[:answer_explain_hash]['result'] ||= result
+    answer_hash[:answer_explain_hash]['解答結果'] ||= result
+    answer_hash[:answer_explain_hash]['ユーザー解答'] ||= @@user_answer
+    answer_hash[:answer_explain_hash]['問題数'] ||= @@quiz_num
     answer_hash[:answer_explain_hash]
-
   end
 end
