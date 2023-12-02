@@ -129,7 +129,8 @@ end
 
 class FinalResult < Result
   def total_correct
-    @@correct_result
+    f_result = @@correct_result.count(true)
+    f_result
   end
 end
 

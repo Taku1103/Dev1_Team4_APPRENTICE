@@ -14,8 +14,7 @@ class ResultServlet < WEBrick::HTTPServlet::AbstractServlet
     res['Access-Control-Allow-Origin'] = ENV['CLIENT_SERVER']
 
     result_class = FinalResult.new
-    t = result_class.total_correct
-    msg = {message: "send_user_input"}
-    res.body = t.to_json
+    correct_count = result_class.total_correct
+    res.body = correct_count.to_json
   end
 end
