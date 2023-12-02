@@ -38,6 +38,9 @@ a,a:visited{
 #genre {
     display: inline-block;
 }
+#mondai_level {
+    display: inline-block;
+}
 
 button {
     width: 250px;

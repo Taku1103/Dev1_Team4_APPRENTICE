@@ -35,16 +35,8 @@ answer.addEventListener("keydown", function (event) {
 //   ctrlKCheckbox.value = "";
 // });
 
-window.onload = function(){
-    axios.get("http://localhost:3000/get_quiz")
-    .then((response) => {
-        console.log(response)
-    })
-    .catch((error) => {
-        console.error("Error submitting reqData:", error.message);
-});
-}
 
+// 回答ボタン押したらAPI叩いてユーザー入力を送信、answer.htmlに画面遷移
 answerButton.addEventListener("click", function submitData() {
   let reqData = {
     CtrlK: ctrlKCheckbox.checked,
@@ -60,6 +52,7 @@ answerButton.addEventListener("click", function submitData() {
     )
     .then((response) => {
       console.log(response);
+      window.location.href = "http://127.0.0.1:5050/HTML/answer.html";
     })
     .catch((error) => {
       console.error("Error submitting reqData:", error.message);

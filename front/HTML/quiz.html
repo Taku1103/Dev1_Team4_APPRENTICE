@@ -21,11 +21,12 @@
         <div class="container">
             <h1 id="mondai">問題:</h1>
             <h2 id="genre">ジャンル:</h2>
+            <h2 id="mondai_level">問題レベル:</h2>
             <div class="position">
                 <div class="left">
                 </div>
                 <div class="center" id = "center">
-                    <img src="../../backend/public/images/jpeg/vscode_test.jpg" alt="VScode画像">
+                    <img src="../../backend/public/images/jpeg/vscode_test.jpg" alt="VScode画像" id="mondai_img">
                     <div class="answer" id="answer">
                         <h2>回答</h2>
                         <div class="answerInput">
@@ -52,7 +53,7 @@
                 <div class="right">
                     <div class="quiz">
                         <h2>問題文</h2>
-                        <p>問題文テストです。</p>
+                        <p id="mondai_text">問題文テストです。</p>
                     </div>
                 </div>
             </div>
@@ -66,5 +67,6 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js"></script>
     <script src="../js/quizInput.js"></script>
+    <script src="../js/getQuiz.js"></script>
 </body>
 </html>
