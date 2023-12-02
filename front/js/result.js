@@ -7,7 +7,7 @@ window.onload = function(){
     .then((response) => {
         console.log(response);
         console.log(response.data);
-        point.innerText = `${response.data["正解数"]}/${response.data["最大問題数"]}`
+        point.innerText = `${response.data["正解数"]}問/${response.data["最大問題数"]}問中 正解！`
     })
     .catch((error) => {
         console.error("Error submitting reqData:", error.message);
