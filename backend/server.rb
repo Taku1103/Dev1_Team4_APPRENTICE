@@ -4,6 +4,7 @@
 require_relative './app/controllers/create_quiz'
 require_relative './app/controllers/get_quiz'
 require_relative './app/controllers/user_answer'
+require_relative './app/controllers/response_answers'
 
 require 'webrick'
 require 'json'
@@ -26,7 +27,7 @@ server.config[:AccessLog] = [
 server.mount('/create_quiz', CreateQuizServlet)
 server.mount('/get_quiz', GetQuizServlet)
 server.mount('/user_answer', UserAnswerServlet)
-# server.mount('/response_answer', ResponseAnserServlet)
+server.mount('/response_answer', ResponseAnswerServlet)
 # server.mount('/result', ResultServlet)
 
 # シャットダウンに必要な記述

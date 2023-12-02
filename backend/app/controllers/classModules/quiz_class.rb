@@ -9,7 +9,7 @@ class Quiz
   @@quiz_content_hash = {} # 以下ハッシュのキー
   @@quiz_order_num = 0 #何問目かの初期値
   @@quiz_order_max = 5 # ここで問題数を設定
-
+  
   def initialize
     @client = Mysql2::Client.new(
       username: ENV['DB_USER'],
@@ -19,6 +19,16 @@ class Quiz
     # question, question_png_path, question_ans_gif, options, explanation, question_level, correct_shortcut_id, question_genre_id
     # 解答の正誤をまとめた配列を作る
   end
+
+  def self.to_result_response
+    {
+      sql_connection: @client,
+      quiz_id_array: @@quiz_id_array,
+      quiz_content_hash: @@quiz_content_hash,
+      quiz_order_num: @@quiz_order_num
+    }
+  end
+  
 end
 
 class CreateQuiz < Quiz
@@ -55,6 +65,7 @@ class CreateQuiz < Quiz
   end
 end
 
+# quiz_id_arrayを回してquiz_content_hashの中身を１個つづ取り出す
 class GetQuiz < Quiz
   def get_quiz_contents
     if @@quiz_order_num <= @@quiz_order_max
