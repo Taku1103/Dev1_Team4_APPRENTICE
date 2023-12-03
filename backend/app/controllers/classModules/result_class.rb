@@ -121,8 +121,8 @@ class CheckAnswers < Result
 
     @@result_hash['正誤履歴'] ||= {}
     @@result_hash['正誤履歴'][@@quiz_num] = result
+    @@result_hash['得点'] ||= 0 #trueなら加算
     if result
-      @@result_hash['得点'] ||= 0 #trueなら加算
       @@result_hash['得点'] += 1 # trueなら1を加算
     end
     answer_hash[:answer_explain_hash]['解答結果'] ||= result

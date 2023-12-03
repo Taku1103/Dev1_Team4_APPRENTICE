@@ -22,7 +22,8 @@ values
 ('Ctrl+N','新規ファイル',8,1,0,0,0,'n'),
 ('Ctrl+S','保存',8,1,0,0,0,'s'),
 ('Ctrl+`','統合ターミナルを表示',11,1,0,0,0,'`'),
-('Ctrl+V','アクティブターミナルにペースト',11,1,0,0,0,'v');
+('Ctrl+V','アクティブターミナルにペースト',11,1,0,0,0,'v'),
+('Ctrl+Shift+L','現在の選択のすべての出現箇所を選択する',5,1,0,0,0,'v'),
 
 ALTER TABLE quiz CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 INSERT INTO quiz (
@@ -32,12 +33,13 @@ INSERT INTO quiz (
   解説,
   問題レベル
 ) VALUES 
-('とある変数がどこにあるのか探したくなった', 'Dev1_Team4_APPRENTICE/backend/public/images/jpg', 'Dev1_Team4_APPRENTICE/backend/public/images/gif', 'Ctrl+F', 1),
-('長いコードの中で特定の単語を変更する必要が生じた', 'Dev1_Team4_APPRENTICE/backend/public/images/jpg', 'Dev1_Team4_APPRENTICE/backend/public/images/gif', 'Ctrl+H', 1),
-('何か新しいアイデアを思いついたとき、すばやく新しいドキュメントを開始したい。', 'Dev1_Team4_APPRENTICE/backend/public/images/jpg', 'Dev1_Team4_APPRENTICE/backend/public/images/gif', 'Ctrl+N', 1),
-('編集中のファイルをとりあえず保存したい', 'Dev1_Team4_APPRENTICE/backend/public/images/jpg', 'Dev1_Team4_APPRENTICE/backend/public/images/gif', 'Ctrl+S', 1),
-('コードを書いているときに、サーバーを起動したり、スクリプトを実行したりするために、手早くターミナルにアクセスしたい', 'Dev1_Team4_APPRENTICE/backend/public/images/jpg', 'Dev1_Team4_APPRENTICE/backend/public/images/gif', 'Ctrl+`', 1),
-('有用なコマンドを見つけコピーしてきたので貼り付けたい', 'Dev1_Team4_APPRENTICE/backend/public/images/jpg', 'Dev1_Team4_APPRENTICE/backend/public/images/gif', 'Ctrl+V', 1);
+('とある変数がどこにあるのか探したくなった', 'ctrl_c.png', 'ctrl_c.gif', 'Ctrl+F', 1),
+('長いコードの中で特定の単語を変更する必要が生じた', 'ctrl_c.png', 'ctrl_c.gif', 'Ctrl+H', 1),
+('何か新しいアイデアを思いついたとき、すばやく新しいドキュメントを開始したい。', 'ctrl_c.png', 'ctrl_c.gif', 'Ctrl+N', 1),
+('編集中のファイルをとりあえず保存したい', 'ctrl_c.png', 'ctrl_c.gif', 'Ctrl+S', 1),
+('コードを書いているときに、サーバーを起動したり、スクリプトを実行したりするために、手早くターミナルにアクセスしたい', 'ctrl_c.png', 'ctrl_c.gif', 'Ctrl+`', 1),
+('有用なコマンドを見つけコピーしてきたので貼り付けたい', 'ctrl_c.png', 'ctrl_c.gif', 'Ctrl+V', 1),
+('文字列中のloveを変えずに単語区切りのloveだけ別単語に一気に選択変換したい。', 'ctrl_shift_l.png', 'ctrl_shift_l.gif', 'Ctrl+Shift+L', 1),
 
 insert into quiz_short(ショートカットID,クイズID)
 values
