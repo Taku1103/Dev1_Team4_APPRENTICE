@@ -1,5 +1,5 @@
 const answer = document.getElementById("answer");
-const answerButton = document.getElementById("answerButton")
+const answerButton = document.getElementById("answerButton");
 const clearButton = document.getElementById("clearButton");
 
 let keyInput = document.getElementById("keyInput");
@@ -7,7 +7,6 @@ let ctrlCheckbox = document.getElementById("ctrlCheckbox");
 let shiftCheckbox = document.getElementById("shiftCheckbox");
 let altCheckbox = document.getElementById("altCheckbox");
 let ctrlKCheckbox = document.getElementById("ctrlKCheckbox");
-
 
 answer.addEventListener("keydown", function (event) {
   const key = event.key;
@@ -35,7 +34,6 @@ answer.addEventListener("keydown", function (event) {
 //   ctrlKCheckbox.value = "";
 // });
 
-
 // 回答ボタン押したらAPI叩いてユーザー入力を送信、answer.htmlに画面遷移
 answerButton.addEventListener("click", function submitData() {
   let reqData = {
@@ -48,13 +46,11 @@ answerButton.addEventListener("click", function submitData() {
   console.log(reqData);
   axios
     .get(
-      `http://localhost:3000/user_answer/?ctrlk=&${reqData.CtrlK}&ctrl=${reqData.Ctrl}&shiht=${reqData.Shift}&alt=${reqData.Alt}&key=${reqData.Key}`
+      `http://localhost:3000/user_answer/?ctrl_k=${reqData.CtrlK}&ctrl=${reqData.Ctrl}&shift=${reqData.Shift}&alt=${reqData.Alt}&key=${reqData.Key}`
     )
-
     .then((response) => {
       console.log(response);
       window.location.href = "http://127.0.0.1:5050/HTML/answer.html";
-
     })
     .catch((error) => {
       console.error("Error submitting reqData:", error.message);

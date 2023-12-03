@@ -84,17 +84,16 @@ end
 
 # quiz_id_arrayを回してquiz_content_hashの中身を１個つづ取り出す
 class GetQuiz < Quiz
-  def initialize
-    @png_path = ""
-    @gif_path = ""
+  
+    @@png_path = ""
+    @@gif_path = ""
     
-  end
 
   def get_quiz_contents
     if @@quiz_order_num < @@quiz_order_max
       current_quiz = @@quiz_content_hash[@@quiz_id_array[@@quiz_order_num]]
-      @png_path = current_quiz["問題画像パス"]
-      @gif_path = current_quiz["解答GIFパス"]
+      @@png_path = current_quiz["問題画像パス"]
+      @@gif_path = current_quiz["解答GIFパス"]
       quiz_num = @@quiz_order_num += 1
       current_quiz['問題数'] = quiz_num
       current_quiz
@@ -104,10 +103,10 @@ class GetQuiz < Quiz
   end
 
   def self.get_png_path
-    @png_path
+    @@png_path
   end
 
   def self.get_gif_path
-    @gif_path
+    @@gif_path
   end
 end
